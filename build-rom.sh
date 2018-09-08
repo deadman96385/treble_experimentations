@@ -38,6 +38,7 @@ if [ "$rom" == "carbon" ];then
 	repo init -u https://github.com/CarbonROM/android -b cr-6.1
 elif [ "$rom" == "lineage" ];then
 	repo init -u https://github.com/LineageOS/android.git -b lineage-15.1
+	export TV_BUILD=true
 elif [ "$rom" == "rr" ];then
 	repo init -u https://github.com/ResurrectionRemix/platform_manifest.git -b oreo
 fi
@@ -45,7 +46,7 @@ fi
 if [ -d .repo/local_manifests ] ;then
 	( cd .repo/local_manifests; git fetch; git reset --hard; git checkout origin/$localManifestBranch)
 else
-	git clone https://github.com/deadman96385/treble_manifest .repo/local_manifests -b $localManifestBranch
+	git clone https://github.com/treble-tv/treble_manifest .repo/local_manifests -b $localManifestBranch
 fi
 
 if [ -z "$local_patches" ];then
