@@ -95,6 +95,15 @@ buildVariant treble_arm64_bgS-userdebug arm64-ab-gapps-su
 buildVariant treble_arm_avN-userdebug arm-aonly-vanilla-nosu
 buildVariant treble_arm_aoS-userdebug arm-aonly-gapps
 
+if [ "$TV_BUILD" == true ];then
+    (
+        buildVariant treble_arm64_atN-userdebug arm64-aonly-tvgapps-nosu
+        buildVariant treble_arm64_atN-userdebug arm64-aonly-tvgapps-su
+        buildVariant treble_arm64_btN-userdebug arm64-ab-tvgapps-nosu
+        buildVariant treble_arm64_btS-userdebug arm64-ab-tvgapps-su
+    )
+fi
+
 if [ "$release" == true ];then
     (
         rm -Rf venv
